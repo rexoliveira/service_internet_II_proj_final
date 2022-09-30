@@ -1,5 +1,5 @@
 {
-    "name": "internet2/servicos",
+    "name": "internet2/service",
     "autoload": {
         "psr-4": {
             "App\\": "app/"
