@@ -16,9 +16,19 @@ $obRouter->get('/about',[
     }
 ]);
 
-//ROTA DINÂMICA
-$obRouter->get('/pagina/{idPagina}',[
-    function($idPagina){
-        return new Response(200,"Página  $idPagina");
+//ROTA SERVIÇOS
+$obRouter->get('/items',[
+    function($request){
+        return new Response(200,Pages\Item::getItems($request));
     }
 ]);
+
+//ROTA SERVIÇOS (INSERT)
+$obRouter->post('/items',[
+    function($request){
+        
+        return new Response(200,Pages\Item::insertItem($request));
+    }
+]);
+
+

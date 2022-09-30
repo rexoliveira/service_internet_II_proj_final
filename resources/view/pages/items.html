@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<h1>Itens</h1>
+
+<hr />
+
+<section id="items">
+ 
+  {{items_service}}
+  
+  {{pagination}}
+
+</section>
+
+<hr />
+
+<section id="form" action="?page=1">
+  <!--action="?page=1"-> DEPOIS QUE ENVIAR ELE VAI PARA PÁGINA 1 -->
+  <form action="?page=1" method="post">
+    <section class="form-group">
+      <label for="nomeUsuario">Nome usuário</label>
+      <input type="text" class="form-control" name="nomeUsuario" required />
+    </section>
+
+    <section class="form-group">
+      <label for="itemServico">Item de Serviço</label>
+      <input type="text" class="form-control" name="itemServico" required />
+    </section>
+
+    <section class="form-group">
+      <label for="item">Descrição do Serviço</label>
+      <textarea
+        class="form-control"
+        name="descricaoServico"
+        cols="5"
+        rows="5"
+        style="resize: none"
+        required
+      ></textarea>
+    </section>
+
+    <section class="form-group mt-3">
+        <button type="submit" class="btn btn-success" >Enviar</button>
+    </section>
+  </form>
+</section>

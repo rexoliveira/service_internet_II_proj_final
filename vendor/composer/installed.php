@@ -1,21 +1,39 @@
 <?php return array(
     'root' => array(
-        'name' => 'internet2/servicos',
+        'name' => 'internet2/service',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '87c0372a26ab99970be92cd7cacb518217474167',
+        'reference' => '77519894b6a871cc7b736eca73abc5ee93aa910d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'internet2/servicos' => array(
+        'internet2/service' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '87c0372a26ab99970be92cd7cacb518217474167',
+            'reference' => '77519894b6a871cc7b736eca73abc5ee93aa910d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'william-costa/database-manager' => array(
+            'pretty_version' => 'v0.1.0',
+            'version' => '0.1.0.0',
+            'reference' => 'ed871363f27251a882b9e5dc036dcac566b271c4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../william-costa/database-manager',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'william-costa/dot-env' => array(
+            'pretty_version' => 'v0.1.0',
+            'version' => '0.1.0.0',
+            'reference' => 'e5eb9b0384b57f2812215fab0e3853c16a4b368e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../william-costa/dot-env',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

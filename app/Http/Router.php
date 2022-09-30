@@ -40,7 +40,7 @@ class Router
      */
     public function __construct($url)
     {
-        $this->request = new Request();
+        $this->request = new Request($this);
         $this->url = $url;
         $this->setPrefix();
     }
@@ -178,7 +178,7 @@ class Router
                     // VARIÁVEIS PROCESSADAS
                     $keys = $methods[$httpMethod]['variables'];
                     $methods[$httpMethod]['variables'] = array_combine($keys, $matches);
-                    $methods[$httpMethod]['variables']['request'] =$this->request;
+                    $methods[$httpMethod]['variables']['request'] = $this->request;
 
 
 
@@ -217,7 +217,7 @@ class Router
 
             foreach ($reflection->getParameters() as $parameter) {
                 $name = $parameter->getName();
-                $args[$name] = $route['variables'][$name]?? '';
+                $args[$name] = $route['variables'][$name] ?? '';
             }
 
             // RETORNA A EXECUÇÃO DA FUNÇÃO
@@ -229,5 +229,13 @@ class Router
         }
     }
 
+    /**
+     * Método reponsável por retornar a URL atual
+     * @return string
+     */
+    public function getCurrentUrl()
+    {
+        return $this->url . $this->getUri();
+    }
 
 }
