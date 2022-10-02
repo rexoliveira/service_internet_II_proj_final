@@ -1,11 +1,14 @@
 <?php
 
+//API:Cofigurar o projeto e ser os "start" da aplicação
+
 //Vai cuidar do autoload das classes
 require __DIR__ . '/../vendor/autoload.php';
 
 use \App\Utils\View;
 use \WilliamCosta\DotEnv\Environment;
 use \WilliamCosta\DatabaseManager\Database;
+use App\Http\Middleware\Quere as MiddlewareQuere;
 
 //CERREGA VARIÁVEIS DE AMBIENTE
 Environment::load(__DIR__.'/../');
@@ -25,4 +28,17 @@ define('URL', getenv('URL'));
 // DEFINE O VALOR PADRÂO DAS VARIÁVEIS
 View::init([
     'URL'=> URL
+]);
+
+// DEFINE O MAPEAMENTO DE MEDDLEWARE
+MiddlewareQuere::setMap([
+    'maintenance'=> \App\Http\Middleware\Maintenance::class,
+    'required-admin-logout'=> \App\Http\Middleware\RequireAdminLogout::class,
+    'required-admin-login'=> \App\Http\Middleware\RequireAdminLogin::class,
+]);
+
+
+// DEFINE O MAPEAMENTO DE MEDDLEWARE PADRÕES (EXECUTADOS EM TODAS AS ROTAS)
+MiddlewareQuere::setDefault([
+    'maintenance'
 ]);

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<section class="d-flex justify-content-center">
+  <section
+    class="card mt-3 text-dark text-center"
+    style="
+      width: 400px;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    "
+  >
+    <section class="card-header">
+      <h1>Login</h1>
+    </section>
+
+    <section class="card-body">
+      {{status}}
+      <form method="post">
+        <section class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            placeholder="email@teste.com"
+            required
+            autofocus
+          />
+        </section>
+        <section class="form-group my-3">
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            class="form-control"
+            placeholder="****************"
+            required
+          />
+        </section>
+        <button type="submit" class="btn btn-lg btn-secondary">Entrar</button>
+      </form>
+    </section>
+  </section>
+</section>

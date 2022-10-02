@@ -4,6 +4,7 @@ namespace App\Http;
 use Closure;
 use Exception;
 use ReflectionFunction;
+use App\Http\Middleware\Quere as MiddlewareQuere;
 
 
 class Router
@@ -75,6 +76,9 @@ class Router
                 continue;
             }
         }
+        // Se não existir um middleware e retonar uma lista vazia
+        // MIDDLEWARE DA ROTA
+        $params['middlewares'] = $params['middlewares'] ?? [];
 
         // VARIÁVEIS DA ROTA
         $params['variables'] = [];
@@ -220,8 +224,8 @@ class Router
                 $args[$name] = $route['variables'][$name] ?? '';
             }
 
-            // RETORNA A EXECUÇÃO DA FUNÇÃO
-            return call_user_func_array($route['controller'], $args);
+            //RETORNA A EXECUÇÃO DA FILA DE MIDDLEWARE
+            return (new MiddlewareQuere($route['middlewares'], $route['controller'], $args))->next($this->request);
 
         }
         catch (Exception $e) {
@@ -238,4 +242,17 @@ class Router
         return $this->url . $this->getUri();
     }
 
+    /**
+     * Método responsável por redirecionar A URL
+     * @param string $route
+     */
+    public function redirect($route)
+    {
+        // URL
+        $url = $this->url . $route;
+
+        // EXECURA O REDEIRECT
+        header('location: '.$url);
+        exit;
+    }
 }

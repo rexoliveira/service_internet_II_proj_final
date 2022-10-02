@@ -74,7 +74,7 @@ class Request
 
     /**
      * Método responsável por retornar a instancia de Router
-     * @return string //return Router
+     * @return Router
      */
     public function getRouter()
     {
