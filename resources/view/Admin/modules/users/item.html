@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<tr>
+  <td>{{id}}</td>
+  <td>{{nome}}</td>
+  <td>{{email}}</td>
+  <td>{{telefone}}</td>
+  <td>{{criado_em}}</td>
+  <td style="display: flex; align-items: center;justify-content: center;gap: 10px;" >
+    <a href="{{URL}}/admin/users/{{id}}/edit" style="text-decoration: none">
+      <button
+        class="btn btn-success"
+        type="button"
+        style="display: flex; align-items: center; text-decoration: none"
+      >
+        <span class="material-symbols-outlined text-light"> edit </span>
+      </button>
+    </a>
+
+    <a href="{{URL}}/admin/users/{{id}}/delete" style="text-decoration: none">
+      <button
+        class="btn btn-danger"
+        type="button"
+        style="display: flex; align-items: center; text-decoration: none"
+      >
+        <span class="material-symbols-outlined text-light"> delete </span>
+      </button>
+    </a>
+  </td>
+</tr>

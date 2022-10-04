@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<h1>{{title}}</h1>
+
+<hr />
+
+<a href="{{URL}}/admin/services" style="text-decoration: none">
+  <button
+    class="btn btn-warning"
+    type="button"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-dark"> keyboard_return </span
+    >Voltar
+  </button>
+</a>
+
+<hr />
+
+<form method="post">
+  <section class="form-group">
+    Você deseja realmente excluir o serviço do usuário
+    <strong style="color:#af0d0d">{{nomeUsuario}}</strong>
+    referente ao serviço
+    <strong style="color:#af0d0d">{{itemServico}}</strong>
+    com a descrição
+    <strong style="color:#af0d0d">"{{descricaoServico}}"</strong>?
+  </section>
+
+  <hr />
+  <button
+    class="btn btn-danger"
+    type="submit"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-light"> delete </span>Excluir
+  </button>
+</form>

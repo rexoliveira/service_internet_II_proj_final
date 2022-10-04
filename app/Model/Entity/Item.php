@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model\Entity;
+
 use WilliamCosta\DatabaseManager\Database;
 use WilliamCosta\DatabaseManager\PDOStatement;
 
@@ -61,17 +62,52 @@ class Item
     }
 
     /**
+     * Método responsavel por atualizar os dados do banco com a instancia atual
+     * @return boolean
+     */
+    public function atualizar()
+    {
+        // ATUALIZA O SERVICO NO BANCO DE DADOS
+        return (new Database('servicos'))->update('id =' . $this->id, [
+            'nome_usuario' => $this->nome_usuario,
+            'item_servico' => $this->item_servico,
+            'descricao_servico' => $this->descricao_servico,
+        ]);
+
+    }
+
+    /**
+     * Método responsável por retornar um serviço com base no seu ID
+     * @param integer $id
+     * @return Item
+     */
+    public static function getServiceById($id)
+    {
+        return self::getItems('id = ' . $id)->fetchObject(self::class);
+    }
+
+    /**
      * Método resposável por retornar Itens de Serviço
      * @param string $where 
      * @param string $oder
      * @param string $limit
      * @param string $fields 
-     * @return PDOStatement  
+     * @return \PDOStatement  
      */
     public static function getItems($where = null, $order = null, $limit = null, $fields = '*')
     {
         return (new Database('servicos'))->select($where, $order, $limit, $fields);
     }
 
+    /**
+     * Método responsavel por excluir os dados do banco com a instancia atual
+     * @return boolean
+     */
+    public function excluir()
+    {
+        // EXCLUI O SERVICO DO BANCO DE DADOS
+        return (new Database('servicos'))->delete('id =' . $this->id);
+
+    }
 
 }

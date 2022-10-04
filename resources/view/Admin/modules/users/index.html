@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<h1>{{title}}</h1>
+
+<p>Lista de usuários adicionados</p>
+
+<hr />
+
+<a href="{{URL}}/admin/users/new" style="text-decoration: none">
+  <button
+    class="btn btn-primary"
+    type="button"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-light"> add </span>Cadastrar usuário
+  </button>
+</a>
+
+<hr />
+
+{{status}}
+
+<table class="table table-secondary table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th style="width: 200px">Nome</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Criado em</th>
+      <th
+        style="
+          width: 100px;
+          text-align: center;
+        "
+      >
+        Ações
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{itens}}
+  </tbody>
+</table>
+
+{{pagination}}

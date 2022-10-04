@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<h1>{{title}}</h1>
+
+<hr />
+
+<a href="{{URL}}/admin/users" style="text-decoration: none">
+  <button
+    class="btn btn-warning"
+    type="button"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-dark"> keyboard_return </span
+    >Voltar
+  </button>
+</a>
+
+<hr />
+
+<form method="post">
+  <section class="form-group">
+    Você deseja realmente excluir o usuário
+    <strong style="color:#af0d0d">{{nome}}</strong>
+    referente ao e-mail
+    <strong style="color:#af0d0d">({{email}})</strong>
+    com o telefone
+    <strong style="color:#af0d0d">"{{telefone}}"</strong>
+    cria em 
+    <strong style="color:#af0d0d">"{{criado_em}}"</strong>?
+  </section>
+
+  <hr />
+  <button
+    class="btn btn-danger"
+    type="submit"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-light"> delete </span>Excluir
+  </button>
+</form>

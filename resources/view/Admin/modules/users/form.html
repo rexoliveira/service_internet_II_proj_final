@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<script src="../../script/mascaras.js" defer></script>
+<script src="../../script/valida_email.js" defer></script>
+<script src="../../script/valida_senha.js" defer></script>
+
+<h1>{{title}}</h1>
+
+<hr />
+
+<a href="{{URL}}/admin/users" style="text-decoration: none">
+  <button
+    class="btn btn-warning"
+    type="button"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-dark"> keyboard_return </span
+    >Voltar
+  </button>
+</a>
+
+<hr />
+
+{{status}}
+
+<form method="post">
+  <section class="form-group">
+    <label for="nome">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      name="nome"
+      value="{{nome}}"
+      placeholder="Digite seu nome completo"
+      required
+    />
+  </section>
+
+  <section class="form-group">
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      class="form-control"
+      id="iemail"
+      name="email"
+      value="{{email}}"
+      placeholder="Digite seu email válido"
+      required
+    />
+  </section>
+  <section class="form-group">
+    <span id="ialert_email"></span>
+  </section>
+  <section ></section>
+  <section class="form-group">
+    <label for="telefone">Telefone</label>
+    <input
+      type="text"
+      class="form-control"
+      name="telefone"
+      onkeypress="mask(this, mphone);"
+      onblur="mask(this, mphone);"
+      th:value="${usuario.telefone}"
+      placeholder="(00) 00000-0000"
+      value="{{telefone}}"
+      required
+    />
+  </section>
+  <section class="form-group">
+    <label for="password">Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="ipassword"
+      name="password"
+      placeholder="Digite sua senha"
+      {{required}}
+    />
+  </section>
+  <section class="form-group">
+    <label for="confirmaPassword">Confirme Senha</label>
+    <input
+      type="password"
+      class="form-control"
+      id="iconfirmaPassword"
+      name="confirmaPassword"
+      placeholder="Confirme a senha"
+      {{required}}
+    />
+  </section>
+
+  <hr />
+  <button
+    class="btn btn-success"
+    type="submit"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-light"> send </span>Enviar
+  </button>
+</form>

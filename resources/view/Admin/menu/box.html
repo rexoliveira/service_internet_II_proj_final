@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <section class="container">
+    <a href="{{URL}}/admin" class="navbar-brand">SERVIÇOS</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        {{links}}
+      </ul>
+      <div class="d-flex justify-content-end" style="width: 100%">
+        <a href="{{URL}}/admin/logout" style="text-decoration: none">
+          <button
+            class="btn"
+            type="button"
+            style="display: flex; align-items: center; text-decoration: none"
+          >
+            <span class="material-symbols-outlined text-danger"> logout </span
+            >Sair
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+</nav>

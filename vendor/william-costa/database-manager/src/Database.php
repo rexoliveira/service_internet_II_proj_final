@@ -90,7 +90,7 @@ class Database{
    * Método responsável por executar queries dentro do banco de dados
    * @param  string $query
    * @param  array  $params
-   * @return PDOStatement
+   * @return \PDOStatement
    */
   public function execute($query,$params = []){
     try{
@@ -128,7 +128,7 @@ class Database{
    * @param  string $order
    * @param  string $limit
    * @param  string $fields
-   * @return PDOStatement
+   * @return \PDOStatement
    */
   public function select($where = null, $order = null, $limit = null, $fields = '*'){
     //DADOS DA QUERY

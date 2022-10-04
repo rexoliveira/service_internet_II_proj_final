@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Admin\Alert;
 use App\Http\Request;
 use App\Utils\View;
 use App\Model\Entity\User;
@@ -19,9 +20,7 @@ class Login extends Page
     public static function getLogin($request, $erroMessage = null)
     {
         // STATUS VAUI RECEBER A REDENRIZAÇÃO DE UMA VIEW
-        $status = !is_null($erroMessage) ?View::render('admin/login/status', [
-            'mensagem' => $erroMessage,
-        ]) : '';
+        $status = !is_null($erroMessage) ? Alert::getError($erroMessage): '';
 
 
         // CONTEÚDO DA PÁGINA DE LOGIN

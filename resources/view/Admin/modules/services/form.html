@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<h1>{{title}}</h1>
+
+<hr />
+
+<a href="{{URL}}/admin/services" style="text-decoration: none">
+  <button
+    class="btn btn-warning"
+    type="button"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-dark"> keyboard_return </span
+    >Voltar
+  </button>
+</a>
+
+<hr />
+
+{{status}}
+
+<form method="post">
+  <section class="form-group">
+    <label for="nomeUsuario">Nome usuário</label>
+    <input
+      type="text"
+      class="form-control"
+      name="nomeUsuario"
+      value="{{nomeUsuario}}"
+      required
+    />
+  </section>
+
+  <section class="form-group">
+    <label for="itemServico">Item de Serviço</label>
+    <input
+      type="text"
+      class="form-control"
+      name="itemServico"
+      value="{{itemServico}}"
+      required
+    />
+  </section>
+
+  <section class="form-group">
+    <label for="item">Descrição do Serviço</label>
+    <textarea
+      class="form-control"
+      name="descricaoServico"
+      cols="5"
+      rows="5"
+      style="resize: none"
+      required
+    >{{descricaoServico}}</textarea>
+  </section>
+  <hr />
+  <button
+    class="btn btn-success"
+    type="submit"
+    style="display: flex; align-items: center; text-decoration: none"
+  >
+    <span class="material-symbols-outlined text-light"> send </span>Enviar
+  </button>
+</form>

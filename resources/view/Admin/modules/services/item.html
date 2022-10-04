@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<tr>
+  <td>{{id}}</td>
+  <td>{{nome_usuario}}</td>
+  <td>{{item_servico}}</td>
+  <td>{{descricao_servico}}</td>
+  <td>{{data_insercao}}</td>
+  <td style="display: flex; align-items: center;justify-content: center;gap: 10px;" >
+    <a href="{{URL}}/admin/services/{{id}}/edit" style="text-decoration: none">
+      <button
+        class="btn btn-success"
+        type="button"
+        style="display: flex; align-items: center; text-decoration: none"
+      >
+        <span class="material-symbols-outlined text-light"> edit </span>
+      </button>
+    </a>
+
+    <a href="{{URL}}/admin/services/{{id}}/delete" style="text-decoration: none">
+      <button
+        class="btn btn-danger"
+        type="button"
+        style="display: flex; align-items: center; text-decoration: none"
+      >
+        <span class="material-symbols-outlined text-light"> delete </span>
+      </button>
+    </a>
+  </td>
+</tr>
