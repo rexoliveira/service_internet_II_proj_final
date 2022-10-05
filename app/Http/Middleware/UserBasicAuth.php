@@ -21,7 +21,7 @@ class UserBasicAuth
             return false;
         }
 
-        //BUSAC USUÁRIO POR EMAIL
+        //BUSCA USUÁRIO POR EMAIL
         $obUser = User::getUserByEmail($_SERVER['PHP_AUTH_USER']);
 
         // VERIFICA A INSTANCIA

@@ -8,7 +8,8 @@ use \App\Controller\Api;
 //ROTA API DE LISTAGEM DE SERVIÇOS
 $obRouter->get('/api/v1/services',[
     'middlewares'=>[
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request){
         return new Response(200,Api\Service::getServices($request), 'application/json',);
@@ -18,7 +19,8 @@ $obRouter->get('/api/v1/services',[
 //ROTA API CONSULTA POR ID
 $obRouter->get('/api/v1/services/{id}',[
     'middlewares'=>[
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request, $id){
         return new Response(200,Api\Service::getService($request, $id), 'application/json',);
@@ -29,7 +31,7 @@ $obRouter->get('/api/v1/services/{id}',[
 $obRouter->post('/api/v1/services',[
     'middlewares'=>[
         'api',
-        'user-basic-auth'
+        'jwt-auth'
     ],
     function($request){
         return new Response(201,Api\Service::setNewService($request), 'application/json',);
@@ -40,7 +42,7 @@ $obRouter->post('/api/v1/services',[
 $obRouter->put('/api/v1/services/{id}',[
     'middlewares'=>[
         'api',
-        'user-basic-auth'
+        'jwt-auth'
     ],
     function($request,$id){
         return new Response(200,Api\Service::setEditService($request,$id), 'application/json',);
@@ -51,7 +53,7 @@ $obRouter->put('/api/v1/services/{id}',[
 $obRouter->delete('/api/v1/services/{id}',[
     'middlewares'=>[
         'api',
-        'user-basic-auth'
+        'jwt-auth'
     ],
     function($request,$id){
         return new Response(200,Api\Service::setDeleteService($request,$id), 'application/json',);
