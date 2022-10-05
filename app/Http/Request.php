@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http;
+
 use App\Http\Router;
+use App\Model\Entity\User;
 
 
 class Request
@@ -44,6 +46,12 @@ class Request
      */
     private $headers = [];
 
+    /**
+     * Uma instancia de usuário
+     * @var User
+     */
+    private $user;
+
 
     /**
      * Construtor da classe
@@ -52,13 +60,31 @@ class Request
     {
         $this->router = $router;
         $this->queryParams = $_GET ?? [];
-        $this->postVars = $_POST ?? [];
         $this->headers = getallheaders();
+        $this->user = new User();
         $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? [];
         $this->setUri();
+        $this->setPostVars();
     }
-    
-    
+
+
+    /**
+     * Método responsável por defir as variaveis do POST
+     */
+    private function setPostVars()
+    {
+        // VERIFICA O MÉTODO DA REQUISIÇÃO
+        if ($this->httpMethod == 'GET')
+            return false;
+
+        // POST PADRÃO
+        $this->postVars = $_POST ?? [];
+
+        // POST JSON
+        $inputRaw = \file_get_contents('php://input');
+        $this->postVars = (strlen($inputRaw) and empty($_POST)) ? json_decode($inputRaw, true) : $this->postVars;
+    }
+
     /**
      * Método responsável por defiir a URI
      */
@@ -66,9 +92,9 @@ class Request
     {
         // URI COMPLETA (COM GETS)
         $this->uri = $_SERVER['REQUEST_URI'] ?? [];
-        
+
         // REMOVE GETS DA URI
-        $xUri = explode('?',$this->uri);
+        $xUri = explode('?', $this->uri);
         $this->uri = $xUri[0];
 
     }
@@ -127,5 +153,30 @@ class Request
     {
         return $this->postVars;
 
+    }
+
+
+    /**
+     * Set uma instancia de usuário
+     *
+     * @param  User  $user  Uma instancia de usuário
+     *
+     * @return  self
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get uma instancia de usuário
+     *
+     * @return  User
+     */ 
+    public function getUser()
+    {
+        return $this->user;
     }
 }

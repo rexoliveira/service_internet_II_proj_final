@@ -8,3 +8,6 @@ include_once __DIR__ . '/api/v1/default.php';
 
 //INCLUI ROTA DE SERVIÇOS
 include_once __DIR__ . '/api/v1/services.php';
+
+//INCLUI ROTA DE USUÁRIOS
+include_once __DIR__ . '/api/v1/users.php';

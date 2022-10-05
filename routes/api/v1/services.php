@@ -1,6 +1,6 @@
 <?php
 
-//API: Retorna as rota de listar serviços
+//API: Retorna as rotas de listar serviços
 
 use App\Http\Response;
 use \App\Controller\Api;
@@ -22,5 +22,38 @@ $obRouter->get('/api/v1/services/{id}',[
     ],
     function($request, $id){
         return new Response(200,Api\Service::getService($request, $id), 'application/json',);
+    }
+]);
+
+//ROTA API DE CADASTRO DE SERVIÇO
+$obRouter->post('/api/v1/services',[
+    'middlewares'=>[
+        'api',
+        'user-basic-auth'
+    ],
+    function($request){
+        return new Response(201,Api\Service::setNewService($request), 'application/json',);
+    }
+]);
+
+//ROTA API DE ATUALiZAÇÃO DE SERVIÇO
+$obRouter->put('/api/v1/services/{id}',[
+    'middlewares'=>[
+        'api',
+        'user-basic-auth'
+    ],
+    function($request,$id){
+        return new Response(200,Api\Service::setEditService($request,$id), 'application/json',);
+    }
+]);
+
+//ROTA API DE EXCLUSÃO DE SERVIÇO
+$obRouter->delete('/api/v1/services/{id}',[
+    'middlewares'=>[
+        'api',
+        'user-basic-auth'
+    ],
+    function($request,$id){
+        return new Response(200,Api\Service::setDeleteService($request,$id), 'application/json',);
     }
 ]);

@@ -13,7 +13,7 @@ class Service extends Api{
    
 
 	/**
-     * Método responsável por obter a rederização dos itens de depoimentos para a página
+     * Método responsável por obter a rederização dos itens de serviços para a página
      * @param Request $request
      * @param Pagination $obPagination
      * @return array
@@ -71,7 +71,7 @@ class Service extends Api{
      * @param integer $id
      * @return array
      */
-    public static function getservice($request, $id){
+    public static function getService($request, $id){
 
         // VALIDA O ID DO SERVIÇO SE É UM NÚMERO
         if(!is_numeric($id)){
@@ -86,13 +86,109 @@ class Service extends Api{
             throw new \Exception("O serviço id ".$id." não encontrado", 404);            
         }
 
-        //RETRONA OS DEATLAHES SERVIÇO
+        ////RETORNA OS DETALHES DO SERVIÇO
         return [
             'id' => (int) $obService->id,
             'nome_usuario' => $obService->nome_usuario,
             'item_servico' => $obService->item_servico,
             'descricao_servico' => $obService->descricao_servico,
             'data_insercao' => $obService->data_insercao,
+        ];
+    }
+
+    /**
+     * Método responsável por cadastrar um novo serviço
+     * @param  Request $request
+     */
+    public static function setNewService($request){
+        // POST VARS
+        $postVars=$request->getPostVars();
+        // VALIDA OS CAMPOS OBRIGATORIOS
+        if(!isset($postVars['nome-usuario']) or 
+           !isset($postVars['item-servico']) or 
+           !isset($postVars['descricao-servico']))
+        {
+        throw new \Exception("Os nomes 'nome-usuario', 'item-servico' e 'descricao-servico' são obrigatórios!", 400);        
+        }
+        
+        // NOVO SERVIÇO
+        $obService = new EntityService;
+        $obService->nome_usuario = $postVars['nome-usuario'];
+        $obService->item_servico = $postVars['item-servico'];
+        $obService->descricao_servico = $postVars['descricao-servico'];
+        $obService->cadastrar();
+        
+        // RETORNA OS DETALHES DO SERVIÇO CADASTRADO
+        return [
+            'id' => (int) $obService->id,
+            'nome_usuario' => $obService->nome_usuario,
+            'item_servico' => $obService->item_servico,
+            'descricao_servico' => $obService->descricao_servico,
+            'data_insercao' => $obService->data_insercao,
+        ];
+    }
+
+    /**
+     * Método responsável por atualizar um serviço
+     * @param  Request $request
+     * @param  integer $id
+     */
+    public static function setEditService($request, $id){
+        // POST VARS
+        $postVars=$request->getPostVars();
+        // VALIDA OS CAMPOS OBRIGATORIOS
+        if(!isset($postVars['nome-usuario']) or 
+           !isset($postVars['item-servico']) or 
+           !isset($postVars['descricao-servico']))
+        {
+        throw new \Exception("Os nomes 'nome-usuario', 'item-servico' e 'descricao-servico' são obrigatórios!", 400);        
+        }
+
+        // BUSCA O SERVIÇO NO BANCO
+        $obService = EntityService::getServiceById($id);
+
+        // VALIDA INSTANCIA
+        if(!$obService instanceof EntityService){
+            throw new \Exception("O serviço id ".$id." não encontrado", 404);    
+        }
+        
+        // ATUALIZAR O SERVIÇO
+        $obService->nome_usuario = $postVars['nome-usuario'];
+        $obService->item_servico = $postVars['item-servico'];
+        $obService->descricao_servico = $postVars['descricao-servico'];
+        $obService->atualizar();
+        
+        // RETORNA OS DETALHES DO SERVIÇO ATUALIZADO
+        return [
+            'id' => (int) $obService->id,
+            'nome_usuario' => $obService->nome_usuario,
+            'item_servico' => $obService->item_servico,
+            'descricao_servico' => $obService->descricao_servico,
+            'data_insercao' => $obService->data_insercao,
+        ];
+    }
+
+    /**
+     * Método responsável por excluir um serviço
+     * @param  Request $request
+     * @param  integer $id
+     */
+    public static function setDeleteService($request, $id){
+              
+        // BUSCA O SERVIÇO NO BANCO
+        $obService = EntityService::getServiceById($id);
+
+        // VALIDA INSTANCIA
+        if(!$obService instanceof EntityService){
+            throw new \Exception("O serviço id ".$id." não encontrado", 404);    
+        }
+        
+        // EXCLUI UM SERVIÇO        
+        $obService->excluir();
+        
+        // RETORNA TRUE
+        return [
+            'sucess' => 'true',
         ];
     }
 }
