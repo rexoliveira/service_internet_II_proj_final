@@ -9,7 +9,8 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/users',[
     'middlewares'=>[
         'api',
-        'jwt-auth'
+        'jwt-auth',
+        'cache'
     ],
     function($request){
         return new Response(200,Api\User::getUsers($request), 'application/json',);
@@ -17,6 +18,7 @@ $obRouter->get('/api/v1/users',[
 ]);
 
 //ROTA API DE CONSULTA DO USUÁRIO ATUAL
+//NÂO COLOCAR O MIDDLEWARE DE CACHE NESTE GET
 $obRouter->get('/api/v1/users/me',[
     'middlewares'=>[
         'api',
@@ -31,7 +33,8 @@ $obRouter->get('/api/v1/users/me',[
 $obRouter->get('/api/v1/users/{id}',[
     'middlewares'=>[
         'api',
-        'jwt-auth'
+        'jwt-auth',
+        'cache'
     ],
     function($request, $id){
         return new Response(200,Api\User::getUser($request, $id), 'application/json',);

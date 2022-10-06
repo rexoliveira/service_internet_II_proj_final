@@ -4,6 +4,9 @@ use \App\Http\Response;
 
 //ROTA HOME
 $obRouter->get('/',[
+    'middlewares'=>[
+        'cache'
+    ],
     function(){
         return new Response(200,Pages\Home::getHome());
     }
@@ -11,6 +14,9 @@ $obRouter->get('/',[
 
 //ROTA SOBRE
 $obRouter->get('/about',[
+    'middlewares'=>[
+        'cache'
+    ],
     function(){
         return new Response(200,Pages\About::getAbout());
     }
@@ -18,6 +24,9 @@ $obRouter->get('/about',[
 
 //ROTA SERVIÇOS
 $obRouter->get('/items',[
+    'middlewares'=>[
+        'cache'
+    ],
     function($request){
         return new Response(200,Pages\Item::getItems($request));
     }

@@ -9,7 +9,7 @@ class Maintenance
 {
 
     /**
-     * Método reposável por executar o middleware
+     * Método responsável por executar o middleware
      * @param Request $request
      * @param \Closure $next
      * @return Response
