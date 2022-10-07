@@ -1,4 +1,5 @@
 /* Crédito:  https://pt.stackoverflow.com/questions/456892/validar-confirma%C3%A7%C3%A3o-de-senha*/
+///API: Valida se as senhs são iguais
 let senha = document.getElementById('ipassword');
 let conf_senha = document.getElementById('iconfirmaPassword');
 

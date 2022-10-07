@@ -1,5 +1,6 @@
 
-/*Fonte:https://stackoverflow.com/questions/15802100/phone-mask-for-text-field-with-regex/15803006#15803006*/
+/*Crédito:https://stackoverflow.com/questions/15802100/phone-mask-for-text-field-with-regex/15803006#15803006*/
+//API:Mascara em JS para número de telefone
 function mask(o, f) {
     setTimeout(function () {
         var v = mphone(o.value);

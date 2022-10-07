@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'internet2/servicos',
+        'name' => 'internet-dois/servicos',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '2eb6a4e4089ae13a53eb582d5b078a2bdc9f1422',
+        'reference' => '7f682f7b9ba73d57fb2bd7e619239b6b73680216',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,10 +19,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'internet2/servicos' => array(
+        'internet-dois/servicos' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '2eb6a4e4089ae13a53eb582d5b078a2bdc9f1422',
+            'reference' => '7f682f7b9ba73d57fb2bd7e619239b6b73680216',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
