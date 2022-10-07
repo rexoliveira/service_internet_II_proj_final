@@ -2,8 +2,8 @@
 
 namespace App\Model\Entity;
 
-use WilliamCosta\DatabaseManager\Database;
-use WilliamCosta\DatabaseManager\PDOStatement;
+use App\Utils\DatabaseManager\Database;
+use App\Utils\DatabaseManager\PDOStatement;
 
 class User
 {

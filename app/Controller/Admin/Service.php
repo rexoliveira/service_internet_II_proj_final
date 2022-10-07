@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use \App\Http\Request;
 use \App\Utils\View;
 use \App\Model\Entity\Item as EntityItem;
-use WilliamCosta\DatabaseManager\Pagination;
+use App\Utils\DatabaseManager\Pagination;
 
 
 class Service extends Page{

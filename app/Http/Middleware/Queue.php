@@ -1,12 +1,12 @@
 <?php
 
-//API: Vai gerencia a fila de middleware
+//API: Gerencia a fila de middleware
 
 namespace App\Http\Middleware;
 use App\Http\Request;
 use App\Http\Response;
 
-class Quere
+class Queue
 {
     /**
      * Mapeamento de middleware

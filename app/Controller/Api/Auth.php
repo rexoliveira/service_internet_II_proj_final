@@ -5,7 +5,7 @@
 namespace App\Controller\Api;
 
 use Firebase\JWT\JWT;
-use \WilliamCosta\DatabaseManager\Pagination ;
+use \App\Utils\DatabaseManager\Pagination ;
 use \App\Http\Request;
 use \App\Model\Entity\User as EntityUser;
 

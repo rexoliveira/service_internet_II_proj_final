@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use \App\Http\Request;
 use \App\Utils\View;
 use \App\Model\Entity\User as EntityUser;
-use WilliamCosta\DatabaseManager\Pagination;
+use \App\Utils\DatabaseManager\Pagination;
 
 
 class User extends Page{

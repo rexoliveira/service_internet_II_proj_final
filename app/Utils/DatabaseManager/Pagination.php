@@ -1,6 +1,6 @@
 <?php
 
-namespace WilliamCosta\DatabaseManager;
+namespace App\Utils\DatabaseManager;
 
 class Pagination{
 

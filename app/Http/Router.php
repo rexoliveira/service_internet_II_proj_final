@@ -5,7 +5,7 @@ namespace App\Http;
 use Closure;
 use Exception;
 use ReflectionFunction;
-use App\Http\Middleware\Quere as MiddlewareQuere;
+use App\Http\Middleware\Queue as MiddlewareQueue;
 
 
 class Router
@@ -245,7 +245,7 @@ class Router
             }
 
             //RETORNA A EXECUÇÃO DA FILA DE MIDDLEWARE
-            return (new MiddlewareQuere($route['middlewares'], $route['controller'], $args))->next($this->request);
+            return (new MiddlewareQueue($route['middlewares'], $route['controller'], $args))->next($this->request);
 
         }
         catch (Exception $e) {

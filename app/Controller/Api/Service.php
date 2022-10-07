@@ -7,7 +7,7 @@ namespace App\Controller\Api;
 use \App\Http\Request;
 use App\Controller\Api\Api;
 use \App\Model\Entity\Item as EntityService;
-use \WilliamCosta\DatabaseManager\Pagination;
+use \App\Utils\DatabaseManager\Pagination;
 
 class Service extends Api{
    

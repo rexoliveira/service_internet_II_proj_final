@@ -1,5 +1,5 @@
 <?php
-//API: Classe de manutenção da aplicação
+//API: Classe de api da aplicação
 namespace App\Http\Middleware;
 use App\Http\Request;
 use App\Http\Response;
@@ -9,7 +9,7 @@ class Api
 {
 
     /**
-     * Método reposável por exectar o middleware
+     * Método reposável por executar o middleware
      * @param Request $request
      * @param \Closure $next
      * @return Response

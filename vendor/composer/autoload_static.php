@@ -7,11 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInit4fd517c9685ae08498464e7aea3ab3f5
 {
     public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'WilliamCosta\\DotEnv\\' => 20,
-            'WilliamCosta\\DatabaseManager\\' => 29,
-        ),
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
@@ -23,14 +18,6 @@ class ComposerStaticInit4fd517c9685ae08498464e7aea3ab3f5
     );
 
     public static $prefixDirsPsr4 = array (
-        'WilliamCosta\\DotEnv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/william-costa/dot-env/src',
-        ),
-        'WilliamCosta\\DatabaseManager\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/william-costa/database-manager/src',
-        ),
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',

@@ -3,9 +3,9 @@
 //API:Page- vai gerenciar as requisições que chegam na página inicial
 
 namespace App\Controller\Pages;
-use App\Utils\View;
-use App\Http\Request;
-use WilliamCosta\DatabaseManager\Pagination;
+use \App\Utils\View;
+use \App\Http\Request;
+use \App\Utils\DatabaseManager\Pagination;
 
 class Page
 {

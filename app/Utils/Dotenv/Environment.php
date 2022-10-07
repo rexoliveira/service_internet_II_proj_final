@@ -1,6 +1,6 @@
 <?php
 
-namespace WilliamCosta\DotEnv;
+namespace App\Utils\Dotenv;
 
 class Environment{
 

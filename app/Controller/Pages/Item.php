@@ -4,10 +4,10 @@
 
 namespace App\Controller\Pages;
 
-use App\Http\Request;
-use App\Utils\View;
-use App\Model\Entity\Item as EntityItem;
-use WilliamCosta\DatabaseManager\Pagination;
+use \App\Http\Request;
+use \App\Utils\View;
+use \App\Model\Entity\Item as EntityItem;
+use \App\Utils\DatabaseManager\Pagination;
 class Item extends Page
 {
 

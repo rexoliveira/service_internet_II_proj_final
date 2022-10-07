@@ -7,7 +7,7 @@ namespace App\Controller\Api;
 use \App\Http\Request;
 use App\Controller\Api\Api;
 use \App\Model\Entity\User as EntityUser;
-use \WilliamCosta\DatabaseManager\Pagination;
+use \App\Utils\DatabaseManager\Pagination;
 
 class User extends Api{
    

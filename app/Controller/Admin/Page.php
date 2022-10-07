@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Http\Request;
 use App\Utils\View;
-use WilliamCosta\DatabaseManager\Pagination;
+use App\Utils\DatabaseManager\Pagination;
 
 class Page
 {

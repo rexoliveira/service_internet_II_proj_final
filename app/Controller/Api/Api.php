@@ -4,7 +4,7 @@
 
 namespace App\Controller\Api;
 
-use \WilliamCosta\DatabaseManager\Pagination ;
+use \App\Utils\DatabaseManager\Pagination ;
 use \App\Http\Request;
 
 class Api{
